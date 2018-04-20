@@ -20,42 +20,41 @@ ul {
 	justify-content: center;
 }
 
-.navigation-item {
+.navigationItem {
 	list-style: none;
 	padding: 10px;
 }
 
-.navigation-item:hover {
+.navigationItem:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
 
-.is-selected {
+.selected {
+	composes: navigationItem;
 	border-bottom: 3px solid #00C4CC;
 }
 
-.repo-container {
-	display: flex;
+.repoContainer {
+	composes: navigation;
     flex-wrap: wrap;
-    justify-content: center;
     margin-top: 60px;
 }
 
-.repo-avatar {
+.repoAvatar {
 	height: 100px;
     width: 100px;
     border-radius: 30%;
 }
 
-.repo-item {
+.repoItem {
+	composes: navigation;
 	align-items: center;
-    justify-content: center;
-    display: flex;
     flex-direction: column;
     margin: 0 10px 40px;
 }
 
-.repo-name {
+.repoName {
 	width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -67,7 +66,7 @@ ul {
 }
 
 /*SPINNER ICON*/
-.sk-cube-grid {
+.skCubeGrid {
   	width: 40px;
   	height: 40px;
   	margin: 40px auto;
@@ -77,38 +76,47 @@ ul {
    * 4 5 6
    * 7 8 9
    */ }
-.sk-cube-grid .sk-cube {
+.skCube {
 	width: 33.33%;
 	height: 33.33%;
 	background-color: #333;
 	float: left;
     animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
-.sk-cube-grid .sk-cube1 {
+.skCube1 {
+	composes: skCube;
     animation-delay: 0.2s;
 }
-.sk-cube-grid .sk-cube2 {
+.skCube2 {
+	composes: skCube;
     animation-delay: 0.3s;
 }
-.sk-cube-grid .sk-cube3 {
+.skCube3 {
+	composes: skCube;
     animation-delay: 0.4s;
 }
-.sk-cube-grid .sk-cube4 {
+.skCube4 {
+	composes: skCube;
     animation-delay: 0.1s;
 }
-.sk-cube-grid .sk-cube5 {
+.skCube5 {
+	composes: skCube;
     animation-delay: 0.2s;
 }
-.sk-cube-grid .sk-cube6 {
+.skCube6 {
+	composes: skCube;
     animation-delay: 0.3s;
 }
-.sk-cube-grid .sk-cube7 {
+.skCube7 {
+	composes: skCube;
     animation-delay: 0.0s;
 }
-.sk-cube-grid .sk-cube8 {
+.skCube8 {
+	composes: skCube;
     animation-delay: 0.1s;
 }
-.sk-cube-grid .sk-cube9 {
+.skCube9 {
+	composes: skCube;
     animation-delay: 0.2s;
 }
 

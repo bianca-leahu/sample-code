@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import LoadingCube from './LoadingCube';
+import style from "./../../main.css";
 
 const navigationItems = ['All', 'Javascript', 'Python', 'Ruby', 'CSS', 'Java'];
 
@@ -16,12 +17,12 @@ export default class Popular extends Component {
 
         return (
             <div>
-                <ul className='navigation'>
+                <ul className={style.navigation}>
                     {navigationItems.map((item) =>
                         <li
                             key={item}
                             onClick={() => showRepo(item)}
-                            className={item === isSelected ? 'navigation-item is-selected' : 'navigation-item'}>
+                            className={item === isSelected ? style.selected : style.navigationItem}>
                             {item}
                         </li>)}
                 </ul>
@@ -29,17 +30,17 @@ export default class Popular extends Component {
                 {isLoading ? 
                     <LoadingCube /> : 
 
-                    <div className='repo-container'>
+                    <div className={style.repoContainer}>
                         {repoData.map((item) =>
                             <div
                                 key={item.id}
-                                className='repo-item'>
+                                className={style.repoItem}>
 
                                 <img
                                     src={item.owner.avatar_url}
-                                    className='repo-avatar' />
+                                    className={style.repoAvatar} />
 
-                                <p className='repo-name'>{item.name}</p>
+                                <p className={style.repoName}>{item.name}</p>
                             </div>)
                         }
                     </div>}
