@@ -3,14 +3,15 @@ import React, { Component } from 'react';
 import Popular from './../../components/PopularLayout/Popular';
 import { getRepos } from './../../api/api';
 
-class PopularContainer extends Component {
+export default class PopularContainer extends Component {
 
 	constructor (props) {
 		super(props);
 
 		this.state = {
             repos: [],
-            isSelected: 'All'
+            isSelected: 'All',
+            isLoading: true,
 		}
 	}
 
@@ -19,10 +20,16 @@ class PopularContainer extends Component {
 	}
 
 	showRepos = async (item) => {
+		this.setState({
+    		isLoading: true
+    	});
+
 		const repos = await getRepos(item);
+		
     	this.setState({
     		repos,
-    		isSelected: item
+    		isSelected: item,
+    		isLoading: false
     	});
 	}
 
@@ -31,9 +38,8 @@ class PopularContainer extends Component {
             <Popular
             	showRepo={this.showRepos}
             	isSelected={this.state.isSelected}
-            	repoData={this.state.repos} />
+            	repoData={this.state.repos}
+            	isLoading={this.state.isLoading} />
         );
     }
 }
-
-export default PopularContainer;

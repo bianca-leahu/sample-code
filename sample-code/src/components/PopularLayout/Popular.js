@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import LoadingCube from './LoadingCube';
 
 const navigationItems = ['All', 'Javascript', 'Python', 'Ruby', 'CSS', 'Java'];
 
-class Popular extends Component {
+export default class Popular extends Component {
     static propTypes = {
         isSelected: PropTypes.string.isRequired,
         showRepo: PropTypes.func.isRequired,
@@ -11,7 +12,7 @@ class Popular extends Component {
     }
 
     render() {
-    	const { isSelected, showRepo, repoData } = this.props;
+    	const { isSelected, showRepo, repoData, isLoading } = this.props;
 
         return (
             <div>
@@ -25,22 +26,24 @@ class Popular extends Component {
                         </li>)}
                 </ul>
 
-                <div className='repo-container'>
-                    {repoData.map((item) =>
-                        <div
-                            key={item.id}
-                            className='repo-item'>
+                {isLoading ? 
+                    <LoadingCube /> : 
 
-                            <img
-                                src={item.owner.avatar_url}
-                                className='repo-avatar' />
+                    <div className='repo-container'>
+                        {repoData.map((item) =>
+                            <div
+                                key={item.id}
+                                className='repo-item'>
 
-                            <p className='repo-name'>{item.name}</p>
-                        </div>)}
-                </div>
+                                <img
+                                    src={item.owner.avatar_url}
+                                    className='repo-avatar' />
+
+                                <p className='repo-name'>{item.name}</p>
+                            </div>)
+                        }
+                    </div>}
             </div>
         );
     }
 }
-
-export default Popular;
