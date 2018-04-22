@@ -3,6 +3,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
+  output: {
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -57,6 +60,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebPackPlugin({
