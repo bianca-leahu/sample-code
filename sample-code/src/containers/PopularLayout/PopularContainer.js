@@ -1,7 +1,6 @@
-// import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Popular from './../../components/PopularLayout/Popular';
-import { getRepos } from './../../api/api';
+import { getRepos } from './../../api/repoApi';
 
 export default class PopularContainer extends Component {
 

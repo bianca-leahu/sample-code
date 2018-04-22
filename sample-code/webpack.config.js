@@ -33,6 +33,28 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: [
+          {
+            loader: 'url-loader?limit=8192'
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
       }
     ]
   },
