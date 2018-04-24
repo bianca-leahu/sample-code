@@ -68,7 +68,7 @@ export default class CurrentWeather extends Component {
                     
                     <p className={style.currentTemperature}>{parseInt(currentWeather.main.temp)} &deg;C</p>
                     
-                    <p>min: {parseInt(currentWeather.main.temp_min)} &deg;C &nbsp;&nbsp;|&nbsp;&nbsp; max: {parseInt(currentWeather.main.temp_max)} &deg;C</p>
+                    <p>Humidity: {currentWeather.main.humidity} % &nbsp;&nbsp;|&nbsp;&nbsp; Pressure: {currentWeather.main.pressure} hPa</p>
                 </div>}
             </div>
         );
